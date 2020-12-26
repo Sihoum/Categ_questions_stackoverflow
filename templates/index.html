@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/logo.png"/>	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #999999;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url('static/images/bg-02.jpg');"></div>
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50" id="form">
+				<form class="login100-form validate-form" action="/tags" method="post">
+					<span class="login100-form-title p-b-59">
+						Ask me your question :) 
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Question is required">
+						<span class="label-input100">Your question</span>
+						<input id="question" class="input100" type="text" name="user_question" placeholder="I'm listening to you...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-m w-full p-b-33">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								<span class="txt1">
+									I agree to the
+									<a href="https://en.wikipedia.org/wiki/Terms_of_service" class="txt2 hov1">
+										Terms of User
+									</a>
+								</span>
+							</label>
+					</div>
+					
+					</div>
+                     
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" id="list_tag">
+								Proposition of Tags 
+							</button>
+                            <div class="login100-form-bgbtn" ></div>
+                            
+                        </div>     
+          
+                                 					</div>
+				
+                </form>
+          
+                        <div class="container-login100 " id="propositions">
+                            <script> 
+                              function app(lst, id, style) {
+                                lst.forEach(element => {
+                                  var newBut = document.createElement("button");
+                                  var newButContent = document.createTextNode(element);
+                                  newBut.appendChild(newButContent);
+                                  newBut.setAttribute("class", style)
+                                  var currentDiv = document.getElementById(id);
+                                  document.body.insertBefore(newBut, currentDiv.list_tag);
+                                });
+                              }
+                              function H2(title, parent_id, id) {
+                                var newH2 = document.createElement("h2");
+                                var newH2Content = document.createTextNode(title);  
+                                newH2.appendChild(newH2Content);
+                                newH2.setAttribute("id", id)
+                                var currentDiv = document.getElementById(parent_id);
+                                document.body.insertBefore(newH2, currentDiv.list_tag);
+                              }         
+                                if ('{{sup}}') {
+                                    var sup_tag = '{{sup}}'.split(',')
+                                    H2("&nbsp;", "form", "sup")
+                                    app(sup_tag, "sup", "tag_s")
+                                } else { 
+                                    app(["no supervised tag"], "sup", "notag") 
+                                }
+                           </script>
+                  </div>
+                        
+                
+                
+			</div>
+            
+                      
+		</div>
+	</div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
