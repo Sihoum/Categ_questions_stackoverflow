@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V13</title>
+	<title>Tag-advisor</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -28,7 +28,20 @@
 	<link rel="stylesheet" type="text/css" href="static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 <!--===============================================================================================-->
-</head>
+    <script type="text/javascript">
+    function checkCheckBox(form)
+    {
+      if (form.ckb1.checked == false )
+        {
+        alert('Vous devez cocher la case avant de continuer.');
+        return false;
+
+        }
+
+    </script>
+    
+    
+    </head>
 <body style="background-color: #999999;">
 	
 	<div class="limiter">
@@ -43,14 +56,13 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Question is required">
 						<span class="label-input100">Your question</span>
-						<input id="question" class="input100" type="text" name="user_question" placeholder="I'm listening to you...">
-						<span class="focus-input100"></span>
+						 <textarea id="question" class="input100"  name="user_question" placeholder="I'm listening to you..."></textarea>
 					</div>
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
+							<input class="input-checkbox100" required id="ckb1" type="checkbox" name="agree">
+							<label class="label-checkbox100" for="ckb1" >
 								<span class="txt1">
 									I agree to the
 									<a href="https://en.wikipedia.org/wiki/Terms_of_service" class="txt2 hov1">
@@ -61,7 +73,6 @@
 					</div>
 					
 					</div>
-                     
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
@@ -77,36 +88,15 @@
 				
                 </form>
           
-                        <div class="container-login100 " id="propositions">
-                            <script> 
-                              function app(lst, id, style) {
-                                lst.forEach(element => {
-                                  var newBut = document.createElement("button");
-                                  var newButContent = document.createTextNode(element);
-                                  newBut.appendChild(newButContent);
-                                  newBut.setAttribute("class", style)
-                                  var currentDiv = document.getElementById(id);
-                                  document.body.insertBefore(newBut, currentDiv.list_tag);
-                                });
-                              }
-                              function H2(title, parent_id, id) {
-                                var newH2 = document.createElement("h2");
-                                var newH2Content = document.createTextNode(title);  
-                                newH2.appendChild(newH2Content);
-                                newH2.setAttribute("id", id)
-                                var currentDiv = document.getElementById(parent_id);
-                                document.body.insertBefore(newH2, currentDiv.list_tag);
-                              }         
-                                if ('{{sup}}') {
-                                    var sup_tag = '{{sup}}'.split(',')
-                                    H2("&nbsp;", "form", "sup")
-                                    app(sup_tag, "sup", "tag_s")
-                                } else { 
-                                    app(["no supervised tag"], "sup", "notag") 
-                                }
-                           </script>
+                        <div class="container-login100 espace" id="propositions">
+                      
+                            
+                              {% for tag in sup %}
+                             <h2 class="tag_s"> {{tag}} </h2> <br>
+                              {% endfor %}
+
                   </div>
-                        
+    
                 
                 
 			</div>

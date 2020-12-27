@@ -446,27 +446,30 @@ iframe {
 
 .notag{
     font-family: Poppins-Medium;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
     text-decoration:line-through;
     color: #6a6969;
     background-color: #ffffff;
-    border: 1px solid #363636;
-    border-radius: 1em;
-    padding: 15px 32px;
+    border: 2px solid #363636;
+    border-radius: 25px;
+    padding: 0 20px;
     transition-duration: 0.4s;
     margin: 5px;
 }
 
+.espace{
+    margin-top : 20px;
+}
+
 .tag_s{
     font-family: Poppins-Medium;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
+  
     color: #212529;
-    background-color: #e6e6e6;
-    border: 1px solid #F48024;
-    border-radius: 1em;
-    padding: 15px 32px;
+    background-color: #FFFFFF;
+    border: 2px solid #F48024;
+    border-radius:  25px;
+    padding: 10px 20px;
     transition-duration: 0.4s;
     margin: 5px;
     display: -webkit-box;
@@ -481,13 +484,13 @@ iframe {
 }
 
 .tag_s:hover {
-    color: white;
-   
+    color: #ffffff;
     background: #FA6900;
     background: -webkit-linear-gradient(top,  #FA6900, #F38630, #FA6900, #F38630);
     background: -o-linear-gradient(top,#FA6900, #F38630, #FA6900, #F38630);
     background: -moz-linear-gradient(top, #FA6900, #F38630, #FA6900, #F38630);
     background: linear-gradient(top, #FA6900, #F38630, #FA6900, #F38630);
+    opacity: 0.6;
   }
 /*------------------------------------------------------------------
 [ Alert validate ]*/

@@ -7,11 +7,6 @@ import os
 
 app = Flask(__name__)
 
-threshold = 0.11
-
-
-# Initialisation non fonctionnelle si présente dans main (en bas)
-# Initialisation du pipeline du nettoyage de texte
 nlp = spacy.load('en_core_web_sm', disable=['ner'])
 bag_tags_lst = pd.read_csv('src/list_tags.csv').list.to_list()
 
@@ -40,12 +35,13 @@ def predict():
                           count_vectorizer,
                           binarizer,
                           supervised_model,
-                          treshold=threshold)
+                          treshold=0.11)
    
+       
     return render_template('index.html',
                            question=text,
-                           sup=sup[0])
+                           sup=sup[0].split(','))
 
     
 if __name__ == "__main__":
-        app.run(port=5089)
+        app.run(port=5109)
