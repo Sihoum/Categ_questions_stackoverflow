@@ -14,7 +14,6 @@ bag_tags_lst = pd.read_csv('src/list_tags.csv').list.to_list()
 # Initialisation des modèles de prédiction
 df_topic_keywords = pd.read_csv('src/df_topic_keywords.csv')
 count_vectorizer = pickle.load(open('src/count_vectorizer.sav', 'rb'))
-unsupervised_model = pickle.load(open('src/unsupervised_model.sav', 'rb'))
 vectorizer = pickle.load(open('src/count_vectorizer.sav', 'rb'))
 binarizer = pickle.load(open('src/binarizer.sav', 'rb'))
 supervised_model = pickle.load(open('src/supervised_model.sav', 'rb'))
@@ -44,4 +43,4 @@ def predict():
 
     
 if __name__ == "__main__":
-        app.run(port=5109)
+        app.run(port=5110)
