@@ -6,3 +6,4 @@ Flask==1.1.2
 nltk==3.4
 beautifulsoup4==4.9.3
 scikit_learn==0.24.0
+gunicorn==20.0.4
