@@ -31,11 +31,10 @@
     <script type="text/javascript">
     function checkCheckBox(form)
     {
-      if (form.ckb1.checked == false )
+      if (form.agree.checked == false)
         {
         alert('Vous devez cocher la case avant de continuer.');
-        return false;
-
+        return 1;
         }
 
     </script>
@@ -56,13 +55,13 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Question is required">
 						<span class="label-input100">Your question</span>
-						 <textarea id="question" class="input100"  name="user_question" placeholder="I'm listening to you..."></textarea>
+						 <textarea id="question" class="input100" required name="user_question" placeholder="I'm listening to you..."></textarea>
 					</div>
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" required id="ckb1" type="checkbox" name="agree">
-							<label class="label-checkbox100" for="ckb1" >
+							<input class="input-checkbox100" required id="ckb1" type="checkbox" >
+							<label class="label-checkbox100" for="ckb1" name="agree" >
 								<span class="txt1">
 									I agree to the
 									<a href="https://en.wikipedia.org/wiki/Terms_of_service" class="txt2 hov1">
@@ -77,7 +76,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" id="list_tag">
+							<button class="login100-form-btn" id="list_tag" onclick="checkCheckBox(this.form);">
 								Proposition of Tags 
 							</button>
                             <div class="login100-form-bgbtn" ></div>
