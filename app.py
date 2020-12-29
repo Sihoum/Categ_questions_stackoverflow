@@ -4,6 +4,7 @@ import pandas as pd
 import spacy
 import pickle
 import os
+import sklearn
 
 app = Flask(__name__)
 
