@@ -21,7 +21,7 @@ from spacy.language import Language
 
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn import preprocessing
-from sklearn.preprocessing import label
+from sklearn.preprocessing import LabelEncoder
 
 stop_words = set(stopwords.words("english"))
 token = ToktokTokenizer()

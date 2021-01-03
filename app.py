@@ -6,7 +6,7 @@ import pickle
 import os
 import sklearn
 from sklearn import preprocessing
-from sklearn.preprocessing import label
+from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 
