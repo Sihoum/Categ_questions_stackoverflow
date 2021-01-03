@@ -7,6 +7,8 @@ import os
 import sklearn
 from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelBinarizer
+
 
 app = Flask(__name__)
 
