@@ -5,6 +5,7 @@ import spacy
 import pickle
 import os
 import sklearn
+from sklearn import preprocessing
 
 app = Flask(__name__)
 

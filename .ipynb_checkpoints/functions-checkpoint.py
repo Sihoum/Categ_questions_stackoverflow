@@ -20,6 +20,7 @@ from spacy.tokens import Doc
 from spacy.language import Language
 
 from sklearn.multiclass import OneVsRestClassifier
+from sklearn import preprocessing
 
 stop_words = set(stopwords.words("english"))
 token = ToktokTokenizer()
@@ -28,11 +29,6 @@ punct = punctuation
 
 
 def clean_text(text):
-        ''' Lowering text and removing undesirable marks
-        Parameter:
-        text: document to be cleaned    
-        '''
-
         text = text.lower()
         text = re.sub(r"\'\n", " ", text)
         text = re.sub(r"\'\xa0", " ", text)
@@ -48,12 +44,6 @@ def strip_list_noempty(mylist):
     return [item for item in newlist if item != '']
 
 def clean_punct(text, top_tags):
-    ''' Remove all the punctuation from text, unless it's part of an important 
-    tag (ex: c++, c#, etc)
-    Parameter:
-    text: document to remove punctuation from it
-    '''
-
     words = token.tokenize(text)
     punctuation_filtered = []
     regex = re.compile('[%s]' % re.escape(punct))
@@ -72,24 +62,12 @@ def clean_punct(text, top_tags):
     return ' '.join(map(str, filtered_list))
 	
 def stopWordsRemove(text):
-    ''' Removing all the english stop words from a corpus
-    Parameter:
-    text: document to remove stop words from it
-    '''
-
     words = token.tokenize(text)
     filtered = [w for w in words if not w in stop_words]
 
     return ' '.join(map(str, filtered))
 
 def lemmatization(texts, allowed_postags, top_tags,stop_words=stop_words):
-        ''' It keeps the lemma of the words (lemma is the uninflected form of a word),
-        and deletes the underired POS tags
-        Parameters:
-        texts (list): text to lemmatize
-        allowed_postags (list): list of allowed postags, like NOUN, ADL, VERB, ADV
-        '''
-
         lemma = wordnet.WordNetLemmatizer()
         doc = nlp(texts)
         texts_out = []
