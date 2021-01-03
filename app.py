@@ -6,6 +6,7 @@ import pickle
 import os
 import sklearn
 from sklearn import preprocessing
+from sklearn.preprocessing import label
 
 app = Flask(__name__)
 
