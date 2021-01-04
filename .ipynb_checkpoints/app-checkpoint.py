@@ -10,6 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import LabelBinarizer
 
 
+
 app = Flask(__name__)
 
 nlp = spacy.load('en_core_web_sm', disable=['ner'])
@@ -22,6 +23,8 @@ count_vectorizer = pickle.load(open('src/count_vectorizer.sav', 'rb'))
 vectorizer = pickle.load(open('src/count_vectorizer.sav', 'rb'))
 binarizer = pickle.load(open('src/binarizer.sav', 'rb'))
 supervised_model = pickle.load(open('src/supervised_model.sav', 'rb'))
+top_tags = pd.read_csv('src/top_tags.csv').list.to_list()
+
 
 
 @app.route('/')
@@ -34,8 +37,11 @@ def home():
 @app.route("/tags", methods=["POST"])
 def predict():
     text = request.form['user_question']
-    cleaned_text = str(nlp(text))
-    sup = supervised_tags(cleaned_text,
+    cl_txt = clean_text(text)
+    cl_txt = clean_punct(cl_txt, top_tags)
+    cl_txt = stopWordsRemove(cl_txt)
+    cl_txt = lemmatization(cl_txt, ['NOUN', 'ADV'], top_tags,stop_words=stop_words)
+    sup = supervised_tags(cl_txt,
                           count_vectorizer,
                           binarizer,
                           supervised_model,
@@ -48,4 +54,4 @@ def predict():
 
     
 if __name__ == "__main__":
-        app.run(port=5114)
+        app.run(port=5117)
